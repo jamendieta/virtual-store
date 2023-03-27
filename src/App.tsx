@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Main from './layouts/main';
+import Login from './views/auth/login';
+import PrivateRoutes from './features/privateRoutes';
+import NotFound from './views/auth/notFound';
+import Products from './views/shopping/products';
+import ProductDetails from './views/shopping/productDetails';
+import Home from './views/Main/home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/* <Route path="/" element={<PrivateRoutes />}> */}
+      <Route path="/" element={<Main />}>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/product" element={<Products />} ></Route>
+        <Route path="/product/:id" element={<ProductDetails />} ></Route>
+        <Route element={<NotFound />} path="*"></Route>
+      </Route>
+      {/* </Route> */}
+    </Routes>
   );
 }
 
