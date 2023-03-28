@@ -8,19 +8,17 @@ import { RootState } from '../../app/store';
 import { useNavigate } from 'react-router-dom';
 import { updateAuthentication } from '../../features/authenticationSlice';
 import { useEffect, useState } from 'react';
-import { TextField } from '@mui/material';
-
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated: any = useSelector((state: RootState) => state.isAuthenticated);
+  const productsCart: any = useSelector((state: RootState) => state.productsCart);
 
   const [handlerAuthenticated, setHandlerAuthenticated] = useState(false)
 
   useEffect(() => {
     setHandlerAuthenticated(isAuthenticated.value);
-    console.log(isAuthenticated)
   }, [isAuthenticated])
 
   const signUp = () => {
@@ -33,23 +31,18 @@ const Navbar = () => {
     navigate("/login");
   }
 
+  const handleClick = () => {
+    navigate("/productsCart");
+  }
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography onClick={() => navigate("/")} variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Virtual Store
         </Typography>
-        <TextField
-          color="primary"
-          InputProps={{
-            style: { color: '#fff' },
-            placeholder: 'search',
-          }}
-        />
-        <Button color="inherit">Home</Button>
-        <Button color="inherit">Categories</Button>
-        <Button startIcon={<ShoppingCartIcon />} color="inherit"></Button>
+        <Button onClick={() => navigate("/")} color="inherit">Home</Button>
+        <Button disabled={productsCart.length === 0} onClick={handleClick} startIcon={<ShoppingCartIcon />} color="inherit">{productsCart.length}</Button>
         {
           handlerAuthenticated ?
             <Button onClick={signUp} color="inherit">Salir</Button> :

@@ -8,8 +8,7 @@ export default function Main() {
     return (
         <div>
             <Navbar />
-            <Sidebar />
-            <div style={{ padding: '5%' }}>
+            <div style={{ padding: '2%' }}>
                 <Outlet />
             </div>
             <Footer />

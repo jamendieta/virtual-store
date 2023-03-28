@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authenticationReducer from '../features/authenticationSlice';
+import productsCartReducer from '../features/productsCartSlice';
+
 export const store = configureStore({
   reducer: {
     isAuthenticated: authenticationReducer,
+    productsCart: productsCartReducer
   },
 });
 
