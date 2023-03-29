@@ -32,7 +32,7 @@ const ProductsCart = () => {
 
     useEffect(() => {
         calculateTotalPrice();
-    }, []);
+    }, [productsCart]);
 
     const calculateTotalPrice = () => {
         const sum = productsCart.items.reduce((sum: any, current: any) => sum + current.totalPrice, 0);
@@ -46,7 +46,7 @@ const ProductsCart = () => {
 
     const checkout = () => {
         shoppingService.saveShop(productsCart.items)
-            .then((result:any) => {
+            .then((result: any) => {
                 dispatch(deleteAll());
                 setOpen(true);
             })
