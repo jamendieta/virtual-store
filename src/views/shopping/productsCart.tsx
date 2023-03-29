@@ -45,7 +45,6 @@ const ProductsCart = () => {
     });
 
     const checkout = () => {
-        debugger;
         shoppingService.saveShop(productsCart.items)
             .then((result:any) => {
                 dispatch(deleteAll());

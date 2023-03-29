@@ -40,7 +40,6 @@ const ProductDetails = () => {
         if (product) {
             const total = units * Number(product.price);
             setTotalPrice(total);
-            console.log(product.stock)
         }
     }, [units]);
 

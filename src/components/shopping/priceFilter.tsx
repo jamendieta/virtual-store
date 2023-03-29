@@ -7,11 +7,9 @@ function PriceFilter(props: any) {
     const [min, setMin] = useState(0);
 
     useEffect(() => {
-        debugger;
         setValue([props.minimalPrice, props.maximunPrice]);
         setMin(props.minimalPrice);
         setMax(props.maximunPrice);
-        console.log(props);
     }, [props])
 
     const handleChange = (event: any, newValue: any) => {
