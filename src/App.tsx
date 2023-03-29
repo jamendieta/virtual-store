@@ -16,7 +16,6 @@ function App() {
         <Route path="/productsCart" element={<ProductsCart />} ></Route>
         <Route element={<NotFound />} path="*"></Route>
       </Route>
-      {/* </Route> */}
     </Routes>
   );
 }
