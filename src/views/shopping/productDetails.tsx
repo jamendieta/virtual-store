@@ -45,7 +45,7 @@ const ProductDetails = () => {
     }, [units]);
 
     const handleAddToCart = () => {
-        const obj = { units, totalPrice, product };
+        const obj = { id: '', units, totalPrice, product };
         dispatch(addItem(obj));
         setOpenNotification(true);
         handleClose();

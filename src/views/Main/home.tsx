@@ -89,7 +89,7 @@ const Home = () => {
                         </Grid>
                         <Grid container spacing={1}>
                             <FormControl fullWidth sx={{ m: 1 }}>
-                                <Button variant="outlined" onClick={filteredByPrice}>Apply</Button>
+                                <Button variant="outlined" color="primary"  onClick={filteredByPrice}>Apply</Button>
                             </FormControl>
                         </Grid>
                     </Box>

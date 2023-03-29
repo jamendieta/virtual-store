@@ -16,7 +16,7 @@ export const getApi = async (url: string) => {
 }
 
 export const postApi = async (url: string, data: any) => {
-    const result = await axios.post(url, post(data))
+    const result = await axios.post(url, JSON.stringify(data), post())
         .then(response => {
             return response.data;
         })
@@ -75,11 +75,10 @@ const put = (data: any) => {
     };
 }
 
-const post = (data: any) => {
+const post = () => {
     return {
         method: "POST",
         headers: authHeaders(),
-        body: JSON.stringify(data),
     };
 }
 

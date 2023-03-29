@@ -42,7 +42,7 @@ const Navbar = () => {
           Virtual Store
         </Typography>
         <Button onClick={() => navigate("/")} color="inherit">Home</Button>
-        <Button disabled={productsCart.length === 0} onClick={handleClick} startIcon={<ShoppingCartIcon />} color="inherit">{productsCart.length}</Button>
+        <Button disabled={productsCart.items.length === 0} onClick={handleClick} startIcon={<ShoppingCartIcon />} color="inherit">{productsCart.items.length}</Button>
         {
           handlerAuthenticated ?
             <Button onClick={signUp} color="inherit">Salir</Button> :
